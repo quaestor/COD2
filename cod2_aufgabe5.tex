@@ -1,0 +1,54 @@
+\section*{Aufgabe 5 - qubit-Zustände und Transformationen}
+\addcontentsline{toc}{subsection}{Aufgabe 5 - qubit-Zustände und Transformationen}
+\begin{enumerate}
+\item Sei $\hat\beta_{ij} = \sqrt{2} \cdot \beta_{ij}$, dann gilt:
+        \[ \hat\beta_{00} = \vket{0} \otimes \vket{0} + \vket{1} \otimes \vket{1} = \vtwo{1}{0} \otimes \vtwo{1}{0} + \vtwo{0}{1} \otimes \vtwo{0}{1} = \vtwo{1\\0}{0\\1} \]
+        und analog
+        \[ \hat\beta_{01} = \vtwo{0\\1}{1\\0}, \quad \hat\beta_{10} = \vtwo{1\\0}{0\\-1}, \quad \hat\beta_{11} = \vtwo{0\\-1}{1\\0} \]
+        Die $\hat\beta_{ij}$ besitzen jeweils zwei Komponenten mit Betrag $1$, daher sind die $\beta_{ij}$ normalisiert. Offensichtlich gilt auch
+        \[ \beta_{ij} \cdot \beta_{kl} = \delta_{ik} \delta_{jl} \]
+        Damit bilden die \textsc{Bell}-Zustände eine Orthonormalbasis des Raumes $\mathds{C}^2 \otimes \mathds{C}^2$.
+\item Dies kann man durch Induktion beweisen:
+        \begin{itemize}
+        \item Induktionsanfang: $n = 1$
+                \[ H^{\otimes 1} = H = \vtwo{1&1}{1&-1} = \frac{1}{\sqrt{2^0}} \left[(-1)^{bin(x)\cdot bin(y)}\right]_{0\leq x,y < 2} \]
+        \item Induktionsvoraussetzung: die Annahme gelte für ein $n \in \mathds{N}$
+        \item Induktionsschritt:
+                \[ H^{\otimes n+1} = H^{\otimes n} \otimes H \overset{IV}{=}
+                   \frac{1}{\sqrt{2^n}} \left[(-1)^{bin(x)\cdot bin(y)}\right]_{0\leq x,y < 2^n}
+                   \otimes H = \frac{1}{2^{n+1}} \vtwo{A&B}{C&-D} \]
+                mit Blockmatrizen
+                \begin{align*}
+                A &= \left[(-1)^{bin(x)\cdot bin(y)}\right]_{0\leq x,y < 2^n} &
+                B &= \left[(-1)^{bin(x)\cdot bin(y)}\right]_{\substack{2^n \leq  x < 2^{n+1} \\
+                                                                              0  \leq y < 2^n}} \\
+                C &= \left[(-1)^{bin(x)\cdot bin(y)}\right]_{\substack{0   \leq x < 2^n \\
+                                                                              2^n \leq y < 2^{n+1}}} &
+                D &= \left[(-1)^{bin(x)\cdot bin(y)}\right]_{2^n \leq x,y < 2^{n+1}}
+                \end{align*}
+                Es gilt (mit $bin(x) = $ Binärdarstellung von $x$ mit $n+1$ Bits)
+                \[ bin(a)\cdot bin(b) = bin(2^n + a)\cdot bin(b) = bin(a)\cdot bin(2^n + b) \]
+                sowie
+                \[ bin(2^n + a)\cdot bin(2^n + b) = bin(a)\cdot bin(b) + 1 \]
+                also ist $A = B = C = -D$ und damit
+                \[ H^{\otimes n+1} = \frac{1}{\sqrt{2^{n+1}}} \left[(-1)^{bin(x)\cdot bin(y)}\right]_{0 \leq x < 2^{n+1}} \]$\hfill\square$
+        \end{itemize}
+        Der Basisvektor $\vket{0}_n$ enstpricht in Vektordarstellung dem
+        kanonischen Einheitsvektor der Länge $2^n$ der ersten Komponente. Von rechts an
+        $H^{\otimes n}$ multipliziert erhält man also die erste Spalte von $H^{\otimes n}$.
+        Dies ist der Vektor $\mathbf{1} = (1, 1, \dots, 1)$ der Länge $2^n$. In \textsc{Dirac}-Notation:
+        \[ H^{\otimes n} \vket{0}_n = \sum_{i=0}^{2^n-1} \vket{i}_n = \bigotimes_{i=0}^{n-1} \left(\vket{0} + \vket{1}\right) \]
+        Analog erhält man für $\vket{1}$ die letzte Spalte von $H^{\otimes n}$. Dies ist der Vektor
+        $v = (1, -1, 1, \dots, 1, -1)$ mit Länge $2^n$, oder in \textsc{Dirac}-Notation:
+        \[ H^{\otimes n} \vket{1}_n = \sum_{i=0}^{2^n-1} (-1)^i\vket{i}_n = (\vket{0} - \vket{1}) \otimes \left(\bigotimes_{i=1}^{n-1} \left(\vket{0} + \vket{1}\right)\right) \]
+\item Die Äquivalenz kann durch schlichtes Nachrechnen gezeigt werden:
+        \[ (H \otimes H) \circ C_{01} \circ (H \otimes H) = \vtwo{1&0&0&0\\0&0&0&1}{0&0&1&0\\0&1&0&0} \]
+       Dies ist genau $C_{10}$, denn der rechte Schaltkreis permutiert die
+       Basisvektoren folgendermaßen:
+       \begin{eqnarray*}
+               \vket{00} \mapsto \vket{00} \\
+               \vket{01} \mapsto \vket{11} \\
+               \vket{10} \mapsto \vket{10} \\
+               \vket{11} \mapsto \vket{01}
+       \end{eqnarray*}
+\end{enumerate}

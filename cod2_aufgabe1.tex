@@ -1,0 +1,77 @@
+\section*{Aufgabe 1 - Pauli-Matrizen}
+\addcontentsline{toc}{subsection}{Aufgabe 1 - Pauli-Matrizen}
+\[ X = \vtwo{0&1}{1&0} \quad Y = \vtwo{0&-i}{i&0} \quad Z = \vtwo{1&0}{0&-1} \]
+\begin{enumerate}
+        \item $\ $
+
+                \twobeg
+                \begin{eqnarray*}
+                   X\cdot Y &=& \vtwo{i&0}{0&-i} = i\cdot Z = -Y\cdot X \\
+                   X\cdot Z &=& \vtwo{0&-1}{1&0} = -i\cdot Y = -Z\cdot X \\
+                   Y\cdot Z &=& \vtwo{0&i}{i&0} = i\cdot X = -Z\cdot Y \\
+                \end{eqnarray*}\twomid
+                \begin{eqnarray*}
+                   \left[X, Y\right] &=& i\cdot Z + i\cdot Z = 2i\cdot Z \\
+                   \left\{X, Y\right\} &=& i\cdot Z - i\cdot Z = 0 \\
+                   \left[X, Z\right] &=& -i\cdot Y - i\cdot Y = -2i\cdot Y \\
+                   \left\{X, Z\right\} &=& -i\cdot Y + i\cdot Y = 0 \\
+                   \left[Y, Z\right] &=& i\cdot X + i\cdot X = 2i\cdot X \\
+                   \left\{Y, Z\right\} &=& i\cdot X - i\cdot X = 0
+                \end{eqnarray*}\twoend
+        \item
+                        $X$ und $Z$ sind symmetrische, reelle Matrizen, also offensichtlich selbstadjungiert
+                        %
+                        \begin{center}
+                        \begin{tabular}{lr}
+                        $Y^{\dag} = \vtwo{0&i}{-i&0}^T = Y\quad \quad$&
+                        $\quad \quad XX^{\dag} = YY^{\dag} = ZZ^{\dag} = \vtwo{1&0}{0&1} = \mathds{1}$\end{tabular}
+                        \end{center}
+                        %
+                        Folglich sind die \textsc{Pauli}-Matrizen selbstadjungierte, unitäre Matrizen.
+        \item $\ $
+
+                \twobeg
+                Eigenwerte:
+                \begin{eqnarray*}
+                        \det(X-\lambda\mathds{1}) &=& \det\begin{pmatrix}-\lambda&1\\1&-\lambda\end{pmatrix} = \lambda^2 - 1 \\
+                        \det(Y-\lambda\mathds{1}) &=& \det\begin{pmatrix}-\lambda&-i\\i&-\lambda\end{pmatrix} = \lambda^2 - 1 \\
+                        \det(Z-\lambda\mathds{1}) &=& \det\begin{pmatrix}1-\lambda&0\\0&1-\lambda\end{pmatrix} = \lambda^2 - 1
+                \end{eqnarray*}
+                \[ \Rightarrow \lambda = \pm 1 \]
+                \twomid
+              Eigenvektoren (berechnet über $Mv = \pm v, \ M \in \{X, Y, Z\}$):
+
+                        \begin{center}
+                        \begin{tabular}{r|c|c|c}
+                                $\lambda$ & $X$ & $Y$ & $Z$ \\
+                                \hline
+                                &&&\\
+                                $1$& $\vtwo{1}{1}$ & $\vtwo{1}{i}$ & $\vtwo{1}{0}$ \\[0.6em]
+                                &&&\\
+                                $-1$& $\vtwo{1}{-1}$ & $\vtwo{1}{-i}$ & $\vtwo{0}{1}$
+                        \end{tabular}
+                        \end{center}
+                \twoend
+        \item Für eine Matrix $A = a_{ij} \in \mathcal{M}_2(\mathds{C}) \ (1
+              \leq i, j \leq 2)$ gilt in der gegebenen Darstellung, dass die Komponenten
+              $a_{11}$ und $a_{22}$ durch $a_0 \mathds{1} + a_z Z$ sowie $a_{12}$ und
+              $a_{21}$ durch $a_xX + a_yY$ gegeben sind. Die Diagonalen bzw. Nebendiagonalen
+              von jeweils $\mathds{1}$ und $Z$ sowie $X$ und $Y$ sind offensichtlich linear
+              unabhängig und bilden daher eine Basis des $\mathds{C}^2$. Daher ist eine
+              Darstellung jeder beliebigen Matrix aus $\mathcal{M}_2(\mathds{C})$ auf diese
+              weise möglich und auch eindeutig.
+        \item Die Eigenwerte der \textsc{Hadamard}-Matrix sind $\lambda = \pm
+              1$ (unitär!) mit den Eigenvektoren $(1~+~\sqrt{2}, 1)^T, (1-\sqrt{2}, 1)^T$.
+              \[ H = \frac{1}{\sqrt{2}} (X + Z) \]
+              \begin{eqnarray*}
+              H\cdot X\cdot H &=& \frac{1}{\sqrt{2}} (X\cdot X + Z\cdot X)
+              \cdot H = \frac{1}{2} (X\cdot X\cdot X + X\cdot X\cdot Z + Z\cdot X\cdot X +
+              Z\cdot X\cdot Z) = \\
+              &&\frac{1}{2} (X + Z + Z + Z\cdot X \cdot Z) = \frac{1}{2} (X
+              + 2Z + (-i)\cdot Z\cdot Y) = Z \\
+              H\cdot Z\cdot H &=& H \cdot H \cdot X \cdot H \cdot H = X \\
+              H\cdot Y\cdot H &=& i H\cdot X\cdot Z\cdot H = i H\cdot X \cdot H \cdot H \cdot Z \cdot H = i Z\cdot X = -Y\cdot X\cdot X = -Y
+              \end{eqnarray*}
+        \item \[ H\cdot Z\cdot H = H\cdot Z^{\frac{1}{2}}\cdot H\cdot H\cdot Z^{\frac{1}{2}}\cdot H = X^{\frac{1}{2}}\cdot X^{\frac{1}{2}} \]
+              \[ H\cdot Z^{\frac{1}{2}}\cdot H = H\cdot \vtwo{1&0}{0&i}\cdot H = \frac{1}{2}\vtwo{1+i&1-i}{1-i&1+i} = X^{\frac{1}{2}} \]
+\end{enumerate}

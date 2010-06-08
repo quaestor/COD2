@@ -1,0 +1,37 @@
+\section*{Aufgabe 4 - Sicheres Unterscheiden von Zuständen}
+\addcontentsline{toc}{subsection}{Aufgabe 4 - Sicheres Unterscheiden von Zuständen}
+\begin{enumerate}
+        \item In der Spektraldarstellung lassen sich die $E_i$ darstellen als
+                \[ E_i = \sum_{\lambda} \lambda\ |v_{\lambda} \ket \bra v_\lambda| \]
+              Wird eine Funktion $f$ auf $E_i$ angewendet, so entspricht dies
+              in der Spektraldarstellung der Anwendung von $f$ auf die Eigenwerte $\lambda$:
+                \[ \sqrt{E_i} = \sum_{\lambda} \sqrt{\lambda}\ |v_{\lambda}\ket \bra v_\lambda| \]
+              Da die $E_i$ positiv sind ist dies wohldefiniert und die
+              $\sqrt{\lambda}$ sind reell und positiv. Wegen $\bra \psi_i | E_j | \psi_i \ket
+              = \delta_{i,j}$ gilt (positiv beinhaltet selbstadjungiert!)
+                \[ \bra \psi_1 | E_2 | \psi_1 \ket = \bra \psi_1 | \sqrt{E_2}
+                \sqrt{E_2} | \psi_1 \ket = \bra \sqrt{E_2}\psi_1 | \sqrt{E_2}\psi_1 \ket =
+                \left\|\sqrt{E_2}\psi_1\right\|^2 = 0 \]
+              und damit
+                \[ \sqrt{E_2}\psi_1 = 0 \]
+              sowie
+                \[ \bra \phi | E_2 | \psi_1 \ket = \bra \phi | \sqrt{E_2} | \sqrt{E_2}\psi_1 \ket = 0 \]
+        \item Aufgrund von $E_1 + E_2 = \mathds{1}$ und da $| \phi \ket$ normiert ist gilt:
+                \[ 1 = \bra \phi | \mathds{1}  | \phi \ket =
+                \bra \phi | E_1+E_2 | \phi \ket = \underbrace{\bra \phi | E_1 | \phi \ket}_{\geq 0} +
+                \underbrace{\bra \phi | E_2 | \phi \ket}_{\geq 0} \]
+                \[ \Rightarrow \bra \phi | E_i | \phi \ket \leq 1 \]
+        \item Durch Ausmultiplizieren des Skalarprodukts $\bra \psi_2 | E_2 | \psi_2 \ket$ erhält man
+                \[ \bra\psi_2|E_2|\psi_2\ket = |\alpha|^2
+                \underbrace{\bra\psi_2|E_2|\psi_1\ket}_{=0} + \beta^*\alpha
+                \underbrace{\bra\phi|E_2|\psi_1\ket}_{=0} + \alpha^*\beta
+                \underbrace{\bra\psi_1|E_2|\phi\ket}_{=\bra \phi| E_2 | \psi_1\ket^* = 0^* = 0} + |\beta|^2
+                \underbrace{\bra\phi|E_2|\phi\ket}_{\leq 1} \]
+                \begin{eqnarray*}
+                 &\Updownarrow& \\
+                1 &=& |\beta|^2 \bra\phi|E_2|\phi\ket \\[1em]
+                \Rightarrow |\beta|^2 &=& 1,\\\alpha &=& 0
+                \end{eqnarray*}
+        Daher ist $|\psi_2\ket = |\phi\ket$ und, da $|\phi\ket \perp
+        |\psi_1\ket$ nach Annahme gilt, natürlich auch $|\psi_2\ket \perp \psi_1\ket$.
+\end{enumerate}

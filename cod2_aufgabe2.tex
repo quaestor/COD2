@@ -1,0 +1,47 @@
+\section*{Aufgabe 2 - Unschärfeprinzip für hermitesche Matrizen}
+\addcontentsline{toc}{subsection}{Aufgabe 2 - Unschärfeprinzip für hermitesche Matrizen}
+\begin{enumerate}
+        \item Für hermitesche Matrizen $A$ und $B$ gilt: 
+        \[ \bra BA \ket = \bra B^{\dag}A^{\dag} \ket = \bra (AB)^{\dag} \ket = \bra AB \ket^* \]
+        Zudem ist \[ | a |^2 = a \cdot a^* \]
+        Durch einfaches Ausmultiplizieren ergibt sich:
+        \begin{eqnarray*}
+        |\bra [A,B] \ket|^2 + |\bra \{A,B\} \ket|^2 &=& |\bra AB \ket - \bra AB \ket^*|^2 
+             + |\bra AB \ket + \bra AB \ket^*|^2 = \\
+        &=& (\bra AB \ket - \bra AB \ket^*)\cdot(\bra AB \ket - \bra AB \ket^*)^* \\
+        &+& (\bra AB \ket + \bra AB \ket^*)\cdot(\bra AB \ket + \bra AB \ket^*)^* = \\
+        &=& (\bra AB \ket \bra AB \ket^* - \bra AB \ket^2 - (\bra AB \ket^*)^2
+        + \bra AB \ket^* \bra AB \ket) \\ &+& (\bra AB \ket \bra AB \ket^* + \bra AB \ket^2
+        + (\bra AB \ket^*)^2 + \bra AB \ket^* \bra AB \ket) \\[0.5em]
+        &=& 4 \bra AB \ket \bra AB \ket^* = 4 |\bra A\cdot B \ket|^2 
+        \end{eqnarray*}
+        $\hfill\square$
+        \item Hier wird die Beziehung $\bra v | A | v \ket = \bra A^{\dag}v | v
+        \ket = \bra Av | v \ket$ für hermitesche Matrizen $A$ ausgenutzt:
+        \begin{eqnarray*}
+        |\bra AB \ket|^2 &=& |\bra v | AB | v \ket |^2 = |\bra A^{\dag}v | Bv \ket|^2 = \\
+        |\bra Av | Bv \ket|^2 &\overset{CSU}{\leq}&
+        \left\|Av\right\|^2\cdot\left\|Bv\right\|^2 = \bra Av | Av \ket \cdot \bra Bv |
+        Bv \ket = \bra A^2 \ket \bra B^2 \ket
+        \end{eqnarray*}
+        Damit gilt
+        \begin{equation}
+                |\bra[A,B]\ket|^2 \leq 4\bra A^2 \ket \bra B^2 \ket
+        \end{equation}
+        \item
+        Vorbemerkung: 
+        \begin{eqnarray*}
+                [A - \bra A \ket, B - \bra B \ket] &=& (A - \bra B \ket)(B -
+                \bra B \ket) - (B - \bra B \ket)(A - \bra A \ket) = \\
+                &=& AB - A\bra B \ket - \bra A \ket B + \bra A \ket \bra B \ket
+                \\&-& BA + B \bra A \ket + \bra B \ket A - \bra B \ket \bra A \ket = \\
+                &=& AB - BA = [A, B]
+        \end{eqnarray*}
+        \begin{eqnarray*}
+        (\Delta A)^2\cdot(\Delta B)^2= \bra (A - \bra A \ket)^2\ket \cdot \bra
+        (B - \bra B \ket)^2\ket \overset{(1)}{\geq} \frac{1}{4} |\bra[A - \bra A \ket,
+        B - \bra B \ket]\ket|^2 = \frac{1}{4} |\bra[A, B]\ket|^2
+        \end{eqnarray*}
+        Daraus folgt
+        \[ \Delta A \cdot \Delta B \geq \frac{1}{2} |\bra[A,B]\ket| \]$\hfill\square$
+\end{enumerate}

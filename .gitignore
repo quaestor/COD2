@@ -3,3 +3,4 @@
 *.out
 *.toc
 *.pdf
+.DS_Store

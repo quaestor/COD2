@@ -7,8 +7,8 @@
                       \sin\phi \sin\theta \\
                       \cos \theta
         \end{bmatrix} \]
-      und dem Vektor-Operator der \textsc{Pauli}-Matrizen 
-        \[ X = \vtwo{0&1}{1&0},\ Y = \vtwo{0&-i}{i&0},\ Z = \vtwo{1&0}{0&-1},\quad \vec\sigma = \begin{bmatrix}X\\Y\\Z\end{bmatrix} \]
+      und den \textsc{Pauli}-Matrizen 
+        \[ X = \vtwo{0&1}{1&0},\ Y = \vtwo{0&-i}{i&0},\ Z = \vtwo{1&0}{0&-1} \]
       erhält man für $\vket{\psi}\vbra{\psi}$:
         \[ \vket{\psi}\vbra{\psi} =
         \vtwo{\cos\frac{\theta}{2}}{e^{i\phi}\sin\frac{\theta}{2}}\cdot
@@ -22,7 +22,32 @@
         \vtwo{\frac{1}{2}(1+\cos\theta) & \frac{1}{2}(\cos\phi
         \sin\theta - i\sin\phi\sin\theta)}{ \frac{1}{2}(\cos\phi\sin\theta +
         i\sin\phi\sin\theta) & \frac{1}{2}(1-\cos\theta) } = \]
-        \[ = \frac{1}{2}\cdot \mathds{1} + \frac{1}{2}\cdot \cos\phi\sin\theta\cdot X + \frac{1}{2}\cdot \sin\phi\sin\theta\cdot Y + \frac{1}{2}\cdot \cos\theta\cdot Z =
-        \frac{1}{2}(\mathds{1} +
-        \vec\psi^t \cdot\vec\sigma) \]
+        \[ = \frac{1}{2}\cdot \mathds{1} + \frac{1}{2}\cdot \cos\phi\sin\theta\cdot X + \frac{1}{2}\cdot \sin\phi\sin\theta\cdot Y + \frac{1}{2}\cdot \cos\theta\cdot Z = \]
+        \[ = \frac{1}{2}\left(\mathds{1} + x\cdot X + y\cdot Y + z\cdot Z\right) \]
+\newcommand{\twopsi}{\vtwo{\cos\frac{\theta}{2}}{e^{i\phi}\sin\frac{\theta}{2}}}
+\item Der Erwartungswert für eine Messung mittels einer selbstadjungierten Matrix $M$ ist
+        \[ \vbra{\psi}M\vket{\psi} \]
+      und damit für die Pauli-Matrizen $\sigma_x = X, \sigma_y = Y, \sigma_z = Z$:
+        \begin{alignat*}{2}
+        \vbra{\psi}X\vket{\psi} &= e^{-i \phi} \cos\frac{\theta }{2}
+        \sin\frac{\theta }{2}+e^{i \phi} \cos\frac{\theta}{2} \sin\frac{\theta}{2} = \cos\phi\sin\theta &= x \\
+        \vbra{\psi}Y\vket{\psi} &=
+        i e^{-i \phi } \cos \frac{\theta }{2} \sin \frac{\theta }{2} - i e^{i \phi }
+        \cos \frac{\theta }{2} \sin\frac{\theta }{2} = \sin\phi\sin\theta &=  y \\
+        \vbra{\psi}Z\vket{\psi} &= \cos^2\frac{\theta}{2}-\sin^2\frac{\theta}{2} = \cos\theta &= z
+        \end{alignat*}
+\item man kann leicht nachrechnen, dass die Eigenvektoren von $R_x, R_y, R_z$
+      identisch mit den Eigenvektoren von $X, Y, Z$ sind. Die Eigenwerte (durch
+      Nachrechnen bestimmt) und damit die Spektraldarstellung ergibt sich zu:
+        \[ R_j(\delta) = e^{-i\frac{d}{2}} \vket{v_{j,0}}\vbra{v_{j,0}} + e^{i\frac{d}{2}} \vket{v_{j,1}}\vbra{v_{j,1}} \]
+      mit $v_{j,0}, v_{j,1}$ den entsprechenden Eigenvektoren von $\sigma_j$.
+
+      Daraus ist ersichtlich, dass die $A_j,\ \ j \in \{x, y, z\}$ für die
+      Darstellung in der Form $R_j(\delta) = e^{-i\frac{\delta}{2} A_j}$ genau die
+      \textsc{Pauli}-Matrizen sein müssen:
+        \[ A_x = X, \quad A_y = Y, A_z = Z \]
+\item Die Rotationsmatrix für eine Drehung um die Achse $v$ ($|v| = 1$) ist gegeben durch:
+        \[ R_v(\delta) = v_x R_x(\delta) \cdot v_y R_y(\delta) \cdot v_z R_z(\delta) \]
+      beziehungsweise nach Aufgabenteil 3.:
+        \[ R_v(\delta) = e^{-i\frac{\delta}{2}Q}, \quad Q = v_x X + v_y Y + v_z Z \]
 \end{enumerate}

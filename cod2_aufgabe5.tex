@@ -36,11 +36,12 @@
         Der Basisvektor $\vket{0}_n$ enstpricht in Vektordarstellung dem
         kanonischen Einheitsvektor der Länge $2^n$ der ersten Komponente. Von rechts an
         $H^{\otimes n}$ multipliziert erhält man also die erste Spalte von $H^{\otimes n}$.
-        Dies ist der Vektor $\mathbf{1} = (1, 1, \dots, 1)$ der Länge $2^n$. In \textsc{Dirac}-Notation:
-        \[ H^{\otimes n} \vket{0}_n = \sum_{i=0}^{2^n-1} \vket{i}_n = \bigotimes_{i=0}^{n-1} \left(\vket{0} + \vket{1}\right) \]
-        Analog erhält man für $\vket{1}$ die letzte Spalte von $H^{\otimes n}$. Dies ist der Vektor
-        $v = (1, -1, 1, \dots, 1, -1)$ mit Länge $2^n$, oder in \textsc{Dirac}-Notation:
-        \[ H^{\otimes n} \vket{1}_n = \sum_{i=0}^{2^n-1} (-1)^i\vket{i}_n = (\vket{0} - \vket{1}) \otimes \left(\bigotimes_{i=1}^{n-1} \left(\vket{0} + \vket{1}\right)\right) \]
+        Dies ist der Vektor $\mathbf{1} = \frac{1}{\sqrt{2^n}} (1, 1, \dots, 1)$ der Länge $2^n$. In \textsc{Dirac}-Notation:
+        \[ H^{\otimes n} \vket{0}_n = \frac{1}{\sqrt{2^n}} \sum_{i=0}^{2^n-1} \vket{i}_n = \frac{1}{\sqrt{2^n}} \left(\vket{0} + \vket{1}\right)^{\otimes n} \]
+        Analog erhält man für $\vket{1}$ die letzte Spalte von $H^{\otimes n}$.
+        Dies ist der Vektor, der durch das $n$-fache Tensorprodukt der zweiten Spalte
+        von $H$ entsteht, also in \textsc{Dirac}-Notation:
+        \[ H^{\otimes n} \vket{1}_n = \frac{1}{\sqrt{2^n}} (\vket{0} - \vket{1})^{\otimes n} \]
 \item Die Äquivalenz kann durch schlichtes Nachrechnen gezeigt werden:
         \[ (H \otimes H) \circ C_{01} \circ (H \otimes H) = \vtwo{1&0&0&0\\0&0&0&1}{0&0&1&0\\0&1&0&0} \]
        Dies ist genau $C_{10}$, denn der rechte Schaltkreis permutiert die

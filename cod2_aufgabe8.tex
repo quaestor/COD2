@@ -1,0 +1,28 @@
+\section*{Aufgabe 8 - Noch einmal Teleportation}
+\addcontentsline{toc}{subsection}{Aufgabe 8 - Noch einmal Teleportation}
+\[ L = X \cdot H = \frac{1}{\sqrt{2}} \vtwo{1&1}{1&-1} \quad S = \vtwo{i&0}{0&1} \quad T = \vtwo{-1&0}{0&-i} \]
+\begin{align*}
+        \vket{\psi_0} &= \vket{\psi 00} \\
+        \intertext{$L$ wirkt, wie oben bereits beschrieben, wie $X \cdot H$:}
+        \vket{\psi_1} &= \vket{\psi} \tensor L \vket{0} \tensor \vket{0} = \frac{1}{\sqrt{2}} \big(\vket{\psi 00}+\vket{\psi 10}\big) \\
+        \intertext{mit $\psi = \alpha \vket{0} + \beta \vket{1}$:}
+        \vket{\psi_2} &= \frac{1}{\sqrt{2}} \big(\vket{\psi 00} + \vket{\psi 11}\big) = \frac{1}{\sqrt{2}} \big(\alpha\vket{000} + \beta\vket{100} + \alpha\vket{011} + \beta\vket{111}\big) \\
+        \vket{\psi_3} &= \frac{1}{\sqrt{2}} \Big(\alpha\big(\vket{000} + \vket{011}\big) + \beta\big(\vket{110} + \vket{101}\big)\Big) \\
+        \vket{\psi_4} &= \frac{1}{2} \Big(\alpha\big(\vket{000} - \vket{100} + \vket{011} - \vket{111}\big) + \beta\big(\vket{010} + \vket{110} + \vket{001} + \vket{101}\big)\Big) \\
+        \intertext{$S$ bewirkt einen Faktor $i$ vor Basiszuständen $\vket{0}$ und verändert den Basiszustand $\vket{1}$ nicht (zusätzlich \textsc{CNOT})}
+        \vket{\psi_5} &= \frac{1}{2} \Big(\alpha\big(i\vket{000} - \vket{100} + i\vket{010} - \vket{110}\big) + \beta\big(i\vket{011} + \vket{111} + i\vket{001} + \vket{101}\big)\Big) \\
+        \vket{\psi_6} &= \frac{1}{2} \Big(\alpha\big(i\vket{000} - \vket{100} + i\vket{010} - \vket{110}\big) + \beta\big(i\vket{111} + \vket{011} + i\vket{101} + \vket{001}\big)\Big) \\
+        \intertext{$S$ wie vorher, $T$ kehrt das Vorzeichen vor $\vket{0}$ um, $\vket{1}$ erhält den Faktor $(-i)$}
+        \vket{\psi_7} &= \frac{1}{2} T_0 \Big(\alpha\big(-\vket{000} - \vket{100} - \vket{010} - \vket{110}\big) + \beta\big(i\vket{111} + i\vket{011} + i\vket{101} + i\vket{001}\big)\Big) \\
+                      &= \frac{1}{2} \Big(\alpha\big(\vket{000} + \vket{100} + \vket{010} + \vket{110}\big) + \beta\big(\vket{111} + \vket{011} + \vket{101} + \vket{001}\big)\Big) \\
+        \vket{\psi_8} &= \frac{1}{2} \Big(\alpha\big(\vket{000} + \vket{100} + \vket{010} + \vket{110}\big) + \beta\big(\vket{011} + \vket{111} + \vket{001} + \vket{101}\big)\Big) \\
+        \intertext{schließlich Umformen mittels der Regeln für das Tensorprodukt}
+                      &= \frac{1}{2} \big(\vket{00} + \vket{10} + \vket{01} + \vket{11}\big) \tensor \alpha\vket{0} + \frac{1}{2} \big(\vket{01} + \vket{11} + \vket{00} + \vket{10}\big) \tensor \beta \vket{1} \\
+                      &= \frac{1}{2} \Big(\big(\vket{0} + \vket{1}\big) \tensor \vket{0} + \big(\vket{0} + \vket{1}\big) \tensor \vket{1}\Big) \tensor \vket{\psi} \\
+                      &= \frac{1}{\sqrt{2}} \big(\vket{0} + \vket{1}\big) \tensor \frac{1}{\sqrt{2}} \big(\vket{0} + \vket{1}\big) \tensor \vket{\psi} \\
+                      &= H \vket{0} \tensor H \vket{0} \tensor \vket{\psi}
+\end{align*}
+Da Zustände jeweils normiert sind ist die Verteilung der Skalare auf
+die drei Drähte eindeutig. Es liegt wie gefordert der Zustand $\vket{\psi}$ auf
+dem unteren Draht, die Zustände $\vket{x}$ und $\vket{y}$ sind jeweils
+$H\vket{0}$.

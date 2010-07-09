@@ -1,0 +1,36 @@
+\section*{Aufgabe 7 - Nochmals unitäre Operationen und Rotation}
+\addcontentsline{toc}{subsection}{Aufgabe 7 - Nochmals unitäre Operationen und Rotation}
+\begin{enumerate}
+\item
+        \[ H = \frac{1}{\sqrt{2}}(X + Z) = e^{i\alpha} R_v(\theta) = e^{i\alpha}\Big(\cos\frac{\theta}{2} \mathds{1} - i \sin\frac{\theta}{2} \big(v_x X + v_y Y + v_z Z\big)\Big) \]
+        Offensichtlich muss in dieser Darstellung gelten:
+        \[ v_y = 0 \]
+        \[ e^{i\alpha} \cos\frac{\theta}{2} = 0\ \Rightarrow\ \cos\frac{\theta}{2} = 0 \]
+        Also kommen für $\theta$ nur die Werte $\pi$ und $-\pi$ infrage, wir wählen $\pi$ und passen den Phasenfaktor später entsprechend an.
+        \[ - e^{i\alpha} \sin\frac{\theta}{2} v_x = - e^{i\alpha}\ i \sin\frac{\theta}{2} v_z = \frac{1}{\sqrt{2}} \]
+        Da $v$ ein normierter Vektor aus dem $\mathds{R}^3$ sein muss, gilt
+        \[ v_x = v_y = \frac{1}{\sqrt{2}} \]
+        Damit ergibt sich für die übrigen Parameter:
+        \[ - e^{i\alpha}\ i \sin\frac{\theta}{2} = 1\ \Leftrightarrow - e^{i\alpha}\ i = 1\ \Rightarrow\ \alpha = \frac{\pi}{2} \]
+        Zusammengefasst:
+        \[ \alpha = \frac{\pi}{2}, \quad \theta = \pi, \quad v = \frac{1}{\sqrt{2}} \begin{bmatrix}1\\0\\1\end{bmatrix} \]
+
+        \[ \sqrt{Z} = \vtwo{1&0}{0&i} = \frac{1}{2}(1+i)\mathds{1} + \frac{1}{2}(1-i)Z = e^{i\alpha} R_v(\theta) = e^{i\alpha}\Big(\cos\frac{\theta}{2} \mathds{1} - i \sin\frac{\theta}{2} \big(v_x X + v_y Y + v_z Z\big)\Big) \]
+        Dadurch ergeben sich folgende Gleichungen:
+        \begin{eqnarray*}
+        v_x &=& v_y = 0 \\
+        v_z &=& 1 \\
+        \frac{1}{2}(1+i) &=& e^{i\alpha} \cos\frac{\theta}{2} \\
+        \frac{1}{2}(1-i) &=& - e^{i\alpha}\ i \sin\frac{\theta}{2}
+        \end{eqnarray*}
+        Durch Multiplikation mit $i$ wird die letzte Gleichung zu
+        \[ \frac{1}{2}(i+1) = e^{i\alpha} \sin\frac{\theta}{2} \]
+        also muss auch gelten:
+        \[ \sin\frac{\theta}{2} = \cos\frac{\theta}{2} \]
+        Es ergibt sich also folgender möglicher Parametersatz:
+        \[ \alpha = \frac{\theta}{2} = \pm \frac{\pi}{4}, \quad v = \begin{bmatrix}0\\0\\1\end{bmatrix} \]
+
+\item
+        \[ U = e^{i\alpha} R_z(\beta)R_y(\gamma)R_z(\delta) \]
+        Diese Darstellung ist immer möglich, da $R_z(\beta)R_y(\gamma)R_z(\delta)$ sich als ein $R_v(\theta)$ schreiben lassen, wie folgt:
+\end{enumerate}
